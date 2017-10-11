@@ -1,4 +1,4 @@
-set number relativenumber
+
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -48,3 +48,24 @@ call plug#end()
 
 autocmd BufEnter * let &titlestring = ' %F'              
 set title
+
+
+" temp fix for clang undo problem
+function! SafeUndo()
+  let s:pos = getpos( '. ' )
+  let s:view = winsaveview()        
+  undo
+  call setpos( '.', s:pos  )
+  call winrestview( s:view  )
+endfunc
+
+function! SafeRedo()
+  let s:pos = getpos( '.'  )
+  let s:view = winsaveview()
+  redo
+  call setpos( '.', s:pos  )
+  call winrestview( s:view  )
+endfunc
+
+nnoremap u :call SafeUndo() <CR>
+nnoremap <C-u> :call SafeRedo() <CR>
