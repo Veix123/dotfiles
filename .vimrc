@@ -1,4 +1,4 @@
-
+set number relativenumber
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -67,5 +67,5 @@ function! SafeRedo()
   call winrestview( s:view  )
 endfunc
 
-nnoremap u :call SafeUndo() <CR>
-nnoremap <C-u> :call SafeRedo() <CR>
+" nnoremap u :call SafeUndo() <CR>
+" nnoremap <C-r> :call SafeRedo() <CR>
