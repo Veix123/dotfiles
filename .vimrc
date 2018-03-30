@@ -1,6 +1,8 @@
 set number relativenumber
 set expandtab
 set tabstop=2
+autocmd FileType python setlocal tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set splitbelow
 set splitright
@@ -18,6 +20,9 @@ highlight YcmErrorSection ctermbg=darkgrey
 
 " Apply YCM FixIt
 map <F9> :YcmCompleter FixIt<CR>
+
+" CRTL-P
+let g:ctrlp_working_path_mode = 'ra'
 
 " CamelCase to snake_case
 nnoremap _ :s#\(\<\u\l\+\<bar>\l\+\)\(\u\)#\l\1_\l\2#g<CR>
@@ -69,3 +74,9 @@ endfunc
 
 " nnoremap u :call SafeUndo() <CR>
 " nnoremap <C-r> :call SafeRedo() <CR>
+
+" VimDiff color scheme
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
