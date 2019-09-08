@@ -32,15 +32,20 @@ nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :NERDTreeFind<CR>
 
 " clang format options
-let g:clang_format#command = 'clang-format-4.0'
+let g:clang_format#command = 'clang-format-6.0'
 let g:clang_format#detect_style_file = 1
-" autocmd FileType c,cpp setlocal equalprg=clang-format-4.0
+let g:clang_format#code_style = 'file'
+" autocmd FileType c,cpp setlocal equalprg=clang-format-6.0
 autocmd FileType c,cpp,objc map = <Plug>(operator-clang-format)
 
+" disable auto folding for rvim plugin
+set nofoldenable
+let g:riv_fold_auto_update = 0
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/taketwo/vim-ros.git'
+" Plug 'https://github.com/taketwo/vim-ros.git'
+Plug 'https://github.com/gu-fan/riv.vim.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/rhysd/vim-clang-format.git'
@@ -48,6 +53,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'https://github.com/kana/vim-operator-user.git'
+Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim'
 
 call plug#end()
 
